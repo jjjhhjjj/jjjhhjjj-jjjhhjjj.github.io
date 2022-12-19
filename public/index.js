@@ -30,18 +30,6 @@ function generateUserName(){
     return makeUsername;    
 }
 
-function numberCount(event){
-    console.log(event.target);
-    if(event.target === voteUp){
-        console.log("2");
-      return voteUp.innerHTML++; 
-      
-    }else if(event.target === voteDown){
-      return voteDown.innerHTML++; 
-    }   
-    
-}
-
 function deleteComments(event){    
     const btn = event.target;    
     const list = btn.parentNode.parentNode;
@@ -58,7 +46,6 @@ function showComment(comment){
     const userName = document.createElement('div');
     const inputValue = document.createElement('span');
     const showTime = document.createElement('div');
-    const voteDiv = document.createElement('div');
     const countSpan = document.createElement('span')
     const commentList = document.createElement('div');  
     const delBtn = document.createElement('button');
@@ -68,7 +55,6 @@ function showComment(comment){
     userName.className="name";
     inputValue.className="inputValue";
     showTime.className="time";
-    voteDiv.className="voteDiv";
     userName.innerHTML = generateUserName();    
     userName.appendChild(delBtn);  
     inputValue.innerText = comment;
@@ -78,7 +64,6 @@ function showComment(comment){
     commentList.appendChild(userName);
     commentList.appendChild(inputValue);
     commentList.appendChild(showTime);
-    commentList.appendChild(voteDiv);
     rootDiv.prepend(commentList);
 
     delBtn.addEventListener("click",deleteComments);
